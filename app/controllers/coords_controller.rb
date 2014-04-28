@@ -5,14 +5,19 @@ class CoordsController < ApplicationController
   def fetch_weather
     @latitude = 42.0538387
     @longitude = -87.67721
+    @address = (@latitude), (@longitude)
     your_api_key = "809482e33d1875804a3daa461c6be8f3"
+    @url_safe_address = URI.encode(@address)
 
     # Your code goes here.
-    url = "http://api.forecast.io/forecast/["your_api_key"]/["@latitude"],["@longitude"]"
+    url = "http://api.forecast.io/forecast/(your_api_key)/(@latitude),(@longitude)"
     require 'open["URI.encode(@address)"]'
     raw_data = open(@url_safe_address).read
     parsed_data = JSON.parse(raw_data)
-
+    @temperature = parsed_data["results"][0]["geometry"]["location"][""]
+    @minutely_summary = parsed_data["results"][0]["geometry"]["location"][""]
+    @hourly_summary = parsed_data["results"][0]["geometry"]["location"][""]
+    @daily_summary = parsed_data["results"][0]["geometry"]["location"][""]
 
     # url = ?
     # raw_data = ?
