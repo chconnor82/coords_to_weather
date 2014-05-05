@@ -1,8 +1,16 @@
 <h1>Weather Lookup</h1>
 
+
+
 <dl>
   <dt>Address:</dt>
   <dd><%= @address %></dd>
+
+<form>
+<!--   <label for="form1">Address</label> -->
+  <input type="text" id="form1" name="address" placeholder="Enter Address">
+  <button>Submit</button>
+</form>
 
   <dt>URL Safe Address:</dt>
   <dd><%= @url_safe_address %></dd>
